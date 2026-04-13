@@ -12,8 +12,8 @@
             --dark-emerald: #021410;
             --gold: #D4C4A8;
             --white: #F5F5F5;
-            /* Путь к вашему файлу на GitHub */
-            --floral-img: url('https://github.com/valek9715-lab/26-06-26/blob/main/bg.jpg.jpg?raw=true');
+            /* Мы используем относительный путь. Файл bg.jpg должен лежать в той же папке, что и этот index.html */
+            --floral-img: url('./bg.jpg');
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -37,8 +37,9 @@
             background-position: center;
             background-repeat: no-repeat;
             z-index: -1;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+            /* Фикс для отображения фона на iPhone */
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
         }
 
         .reveal { opacity: 0; transform: translateY(20px); transition: all 1s ease; }
@@ -107,7 +108,6 @@
         .footer-date { font-size: 1.2rem; letter-spacing: 5px; color: var(--gold); opacity: 0.8; font-weight: 300; }
 
         @media (max-width: 450px) {
-            .bg-fixed { background-attachment: scroll; }
             h2.title { font-size: 2.2rem; }
             .name-line { font-size: 3.5rem; }
         }
